@@ -9,7 +9,6 @@
 import { PagedAsyncIterableIterator } from "@azure/core-paging";
 import {
   ConfigData,
-  ConfigurationsListBySubscriptionOptionalParams,
   ConfigurationsListByResourceGroupOptionalParams,
   ConfigurationName,
   ConfigurationsCreateInSubscriptionOptionalParams,
@@ -21,13 +20,6 @@ import {
 /// <reference lib="esnext.asynciterable" />
 /** Interface representing a Configurations. */
 export interface Configurations {
-  /**
-   * Retrieve Azure Advisor configurations and also retrieve configurations of contained resource groups.
-   * @param options The options parameters.
-   */
-  listBySubscription(
-    options?: ConfigurationsListBySubscriptionOptionalParams,
-  ): PagedAsyncIterableIterator<ConfigData>;
   /**
    * Retrieve Azure Advisor configurations.
    * @param resourceGroup The name of the Azure resource group.

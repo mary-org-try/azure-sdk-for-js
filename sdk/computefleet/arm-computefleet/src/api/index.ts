@@ -18,11 +18,9 @@ export {
 } from "./options.js";
 export {
   fleetsGet,
-  fleetsCreateOrUpdate,
   fleetsUpdate,
   fleetsDelete,
   fleetsListByResourceGroup,
   fleetsListBySubscription,
   fleetsListVirtualMachineScaleSets,
 } from "./fleets/index.js";
-export { operationsList } from "./operations/index.js";

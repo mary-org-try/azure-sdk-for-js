@@ -6,7 +6,6 @@
  * Changes may cause incorrect behavior and will be lost if the code is regenerated.
  */
 
-export * from "./recommendationMetadata.js";
 export * from "./configurations.js";
 export * from "./recommendations.js";
 export * from "./operations.js";

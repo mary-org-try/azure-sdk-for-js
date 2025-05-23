@@ -74,7 +74,6 @@ export type ArchitectureType = string;
 export class AzureFleetClient {
     constructor(credential: TokenCredential, subscriptionId: string, options?: AzureFleetClientOptionalParams);
     readonly fleets: FleetsOperations;
-    readonly operations: OperationsOperations;
     readonly pipeline: Pipeline;
 }
 
@@ -229,7 +228,6 @@ export interface FleetsListVirtualMachineScaleSetsOptionalParams extends Operati
 
 // @public
 export interface FleetsOperations {
-    createOrUpdate: (resourceGroupName: string, fleetName: string, resource: Fleet, options?: FleetsCreateOrUpdateOptionalParams) => PollerLike<OperationState<Fleet>, Fleet>;
     delete: (resourceGroupName: string, fleetName: string, options?: FleetsDeleteOptionalParams) => PollerLike<OperationState<void>, void>;
     get: (resourceGroupName: string, fleetName: string, options?: FleetsGetOptionalParams) => Promise<Fleet>;
     listByResourceGroup: (resourceGroupName: string, options?: FleetsListByResourceGroupOptionalParams) => PagedAsyncIterableIterator<Fleet>;
@@ -660,11 +658,6 @@ export interface OperationDisplay {
 
 // @public
 export interface OperationsListOptionalParams extends OperationOptions {
-}
-
-// @public
-export interface OperationsOperations {
-    list: (options?: OperationsListOptionalParams) => PagedAsyncIterableIterator<Operation>;
 }
 
 // @public

@@ -1,7 +1,6 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { getOperationsOperations, OperationsOperations } from "./classic/operations/index.js";
 import { getFleetsOperations, FleetsOperations } from "./classic/fleets/index.js";
 import {
   createAzureFleet,
@@ -32,12 +31,9 @@ export class AzureFleetClient {
       userAgentOptions: { userAgentPrefix },
     });
     this.pipeline = this._client.pipeline;
-    this.operations = getOperationsOperations(this._client);
     this.fleets = getFleetsOperations(this._client, subscriptionId);
   }
 
-  /** The operation groups for Operations */
-  public readonly operations: OperationsOperations;
   /** The operation groups for Fleets */
   public readonly fleets: FleetsOperations;
 }
