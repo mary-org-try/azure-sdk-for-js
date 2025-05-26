@@ -534,14 +534,6 @@ export interface AdvisorManagementClientOptionalParams extends coreClient.Servic
   endpoint?: string;
 }
 
-/** Optional parameters. */
-export interface _PageItem {
-  /** The operation status URL. */
-  operationStatusLink: string;
-  /** The number of seconds to wait before retrying the operation. */
-  retryAfter?: number;
-}
-
 /** Test bad interface name. */
 export interface _PageItem {
   /** The operation status URL. */

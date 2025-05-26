@@ -268,12 +268,6 @@ export interface _PageItem {
 }
 
 // @public
-export interface _PageItem {
-    operationStatusLink: string;
-    retryAfter?: number;
-}
-
-// @public
 export interface RecommendationMetadata {
     get(name: string, options?: RecommendationMetadataGetOptionalParams): Promise<RecommendationMetadataGetResponse>;
     list(options?: RecommendationMetadataListOptionalParams): PagedAsyncIterableIterator<MetadataEntity>;
