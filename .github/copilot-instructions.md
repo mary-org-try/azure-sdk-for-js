@@ -8,6 +8,9 @@ You are a highly experienced engineer with expertise in
 - Vitest (https://vitest.dev/)
 - rush (https://rushjs.io).
 
+## Code review
+- Use Chinese in code review comments
+
 ## Behavior
 
 - Always run `rush update` at least once before running other `rush` or `rushx` commands.
