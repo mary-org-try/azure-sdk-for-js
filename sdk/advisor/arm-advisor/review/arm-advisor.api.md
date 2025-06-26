@@ -21,8 +21,6 @@ export class AdvisorManagementClient extends coreClient.ServiceClient {
     // (undocumented)
     operations: Operations;
     // (undocumented)
-    recommendationMetadata: RecommendationMetadata;
-    // (undocumented)
     recommendations: Recommendations;
     // (undocumented)
     subscriptionId?: string;
@@ -72,7 +70,6 @@ export interface Configurations {
     createInResourceGroup(configurationName: ConfigurationName, resourceGroup: string, configContract: ConfigData, options?: ConfigurationsCreateInResourceGroupOptionalParams): Promise<ConfigurationsCreateInResourceGroupResponse>;
     createInSubscription(configurationName: ConfigurationName, configContract: ConfigData, options?: ConfigurationsCreateInSubscriptionOptionalParams): Promise<ConfigurationsCreateInSubscriptionResponse>;
     listByResourceGroup(resourceGroup: string, options?: ConfigurationsListByResourceGroupOptionalParams): PagedAsyncIterableIterator<ConfigData>;
-    listBySubscription(options?: ConfigurationsListBySubscriptionOptionalParams): PagedAsyncIterableIterator<ConfigData>;
 }
 
 // @public
@@ -240,12 +237,6 @@ export interface OperationsListOptionalParams extends coreClient.OperationOption
 
 // @public
 export type OperationsListResponse = OperationEntityListResult;
-
-// @public
-export interface RecommendationMetadata {
-    get(name: string, options?: RecommendationMetadataGetOptionalParams): Promise<RecommendationMetadataGetResponse>;
-    list(options?: RecommendationMetadataListOptionalParams): PagedAsyncIterableIterator<MetadataEntity>;
-}
 
 // @public
 export interface RecommendationMetadataGetOptionalParams extends coreClient.OperationOptions {

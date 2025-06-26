@@ -190,5 +190,5 @@ export {
   FleetsListBySubscriptionOptionalParams,
   FleetsListVirtualMachineScaleSetsOptionalParams,
 } from "./api/index.js";
-export { FleetsOperations, OperationsOperations } from "./classic/index.js";
+export { FleetsOperations } from "./classic/index.js";
 export { PageSettings, ContinuablePage, PagedAsyncIterableIterator };

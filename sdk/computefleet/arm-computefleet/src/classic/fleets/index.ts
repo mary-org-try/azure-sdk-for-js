@@ -4,7 +4,6 @@
 import { AzureFleetContext } from "../../api/azureFleetContext.js";
 import {
   fleetsGet,
-  fleetsCreateOrUpdate,
   fleetsUpdate,
   fleetsDelete,
   fleetsListByResourceGroup,
@@ -13,7 +12,6 @@ import {
 } from "../../api/fleets/index.js";
 import {
   FleetsGetOptionalParams,
-  FleetsCreateOrUpdateOptionalParams,
   FleetsUpdateOptionalParams,
   FleetsDeleteOptionalParams,
   FleetsListByResourceGroupOptionalParams,
@@ -32,13 +30,6 @@ export interface FleetsOperations {
     fleetName: string,
     options?: FleetsGetOptionalParams,
   ) => Promise<Fleet>;
-  /** Create a Fleet */
-  createOrUpdate: (
-    resourceGroupName: string,
-    fleetName: string,
-    resource: Fleet,
-    options?: FleetsCreateOrUpdateOptionalParams,
-  ) => PollerLike<OperationState<Fleet>, Fleet>;
   /** Update a Fleet */
   update: (
     resourceGroupName: string,
@@ -73,20 +64,6 @@ export function getFleets(context: AzureFleetContext, subscriptionId: string) {
   return {
     get: (resourceGroupName: string, fleetName: string, options?: FleetsGetOptionalParams) =>
       fleetsGet(context, subscriptionId, resourceGroupName, fleetName, options),
-    createOrUpdate: (
-      resourceGroupName: string,
-      fleetName: string,
-      resource: Fleet,
-      options?: FleetsCreateOrUpdateOptionalParams,
-    ) =>
-      fleetsCreateOrUpdate(
-        context,
-        subscriptionId,
-        resourceGroupName,
-        fleetName,
-        resource,
-        options,
-      ),
     update: (
       resourceGroupName: string,
       fleetName: string,

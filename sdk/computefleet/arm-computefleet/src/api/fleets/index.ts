@@ -3,7 +3,6 @@
 
 import {
   AzureFleetContext as Client,
-  FleetsCreateOrUpdateOptionalParams,
   FleetsDeleteOptionalParams,
   FleetsGetOptionalParams,
   FleetsListByResourceGroupOptionalParams,
@@ -13,7 +12,6 @@ import {
 } from "../index.js";
 import {
   Fleet,
-  fleetSerializer,
   fleetDeserializer,
   FleetUpdate,
   fleetUpdateSerializer,
@@ -78,63 +76,6 @@ export async function fleetsGet(
     options,
   );
   return _fleetsGetDeserialize(result);
-}
-
-export function _fleetsCreateOrUpdateSend(
-  context: Client,
-  subscriptionId: string,
-  resourceGroupName: string,
-  fleetName: string,
-  resource: Fleet,
-  options: FleetsCreateOrUpdateOptionalParams = { requestOptions: {} },
-): StreamableMethod {
-  return context
-    .path(
-      "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName}",
-      subscriptionId,
-      resourceGroupName,
-      fleetName,
-    )
-    .put({
-      ...operationOptionsToRequestParameters(options),
-      body: fleetSerializer(resource),
-    });
-}
-
-export async function _fleetsCreateOrUpdateDeserialize(
-  result: PathUncheckedResponse,
-): Promise<Fleet> {
-  const expectedStatuses = ["200", "201"];
-  if (!expectedStatuses.includes(result.status)) {
-    throw createRestError(result);
-  }
-
-  return fleetDeserializer(result.body);
-}
-
-/** Create a Fleet */
-export function fleetsCreateOrUpdate(
-  context: Client,
-  subscriptionId: string,
-  resourceGroupName: string,
-  fleetName: string,
-  resource: Fleet,
-  options: FleetsCreateOrUpdateOptionalParams = { requestOptions: {} },
-): PollerLike<OperationState<Fleet>, Fleet> {
-  return getLongRunningPoller(context, _fleetsCreateOrUpdateDeserialize, ["200", "201"], {
-    updateIntervalInMs: options?.updateIntervalInMs,
-    abortSignal: options?.abortSignal,
-    getInitialResponse: () =>
-      _fleetsCreateOrUpdateSend(
-        context,
-        subscriptionId,
-        resourceGroupName,
-        fleetName,
-        resource,
-        options,
-      ),
-    resourceLocationConfig: "azure-async-operation",
-  }) as PollerLike<OperationState<Fleet>, Fleet>;
 }
 
 export function _fleetsUpdateSend(

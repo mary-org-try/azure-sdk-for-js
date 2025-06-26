@@ -7,7 +7,6 @@
  */
 
 import { PagedAsyncIterableIterator, PageSettings } from "@azure/core-paging";
-import { setContinuationToken } from "../pagingHelper.js";
 import { Configurations } from "../operationsInterfaces/index.js";
 import * as coreClient from "@azure/core-client";
 import * as Mappers from "../models/mappers.js";
@@ -15,9 +14,6 @@ import * as Parameters from "../models/parameters.js";
 import { AdvisorManagementClient } from "../advisorManagementClient.js";
 import {
   ConfigData,
-  ConfigurationsListBySubscriptionNextOptionalParams,
-  ConfigurationsListBySubscriptionOptionalParams,
-  ConfigurationsListBySubscriptionResponse,
   ConfigurationsListByResourceGroupOptionalParams,
   ConfigurationsListByResourceGroupResponse,
   ConfigurationName,
@@ -25,7 +21,6 @@ import {
   ConfigurationsCreateInSubscriptionResponse,
   ConfigurationsCreateInResourceGroupOptionalParams,
   ConfigurationsCreateInResourceGroupResponse,
-  ConfigurationsListBySubscriptionNextResponse,
 } from "../models/index.js";
 
 /// <reference lib="esnext.asynciterable" />
@@ -39,60 +34,6 @@ export class ConfigurationsImpl implements Configurations {
    */
   constructor(client: AdvisorManagementClient) {
     this.client = client;
-  }
-
-  /**
-   * Retrieve Azure Advisor configurations and also retrieve configurations of contained resource groups.
-   * @param options The options parameters.
-   */
-  public listBySubscription(
-    options?: ConfigurationsListBySubscriptionOptionalParams,
-  ): PagedAsyncIterableIterator<ConfigData> {
-    const iter = this.listBySubscriptionPagingAll(options);
-    return {
-      next() {
-        return iter.next();
-      },
-      [Symbol.asyncIterator]() {
-        return this;
-      },
-      byPage: (settings?: PageSettings) => {
-        if (settings?.maxPageSize) {
-          throw new Error("maxPageSize is not supported by this operation.");
-        }
-        return this.listBySubscriptionPagingPage(options, settings);
-      },
-    };
-  }
-
-  private async *listBySubscriptionPagingPage(
-    options?: ConfigurationsListBySubscriptionOptionalParams,
-    settings?: PageSettings,
-  ): AsyncIterableIterator<ConfigData[]> {
-    let result: ConfigurationsListBySubscriptionResponse;
-    let continuationToken = settings?.continuationToken;
-    if (!continuationToken) {
-      result = await this._listBySubscription(options);
-      let page = result.value || [];
-      continuationToken = result.nextLink;
-      setContinuationToken(page, continuationToken);
-      yield page;
-    }
-    while (continuationToken) {
-      result = await this._listBySubscriptionNext(continuationToken, options);
-      continuationToken = result.nextLink;
-      let page = result.value || [];
-      setContinuationToken(page, continuationToken);
-      yield page;
-    }
-  }
-
-  private async *listBySubscriptionPagingAll(
-    options?: ConfigurationsListBySubscriptionOptionalParams,
-  ): AsyncIterableIterator<ConfigData> {
-    for await (const page of this.listBySubscriptionPagingPage(options)) {
-      yield* page;
-    }
   }
 
   /**
@@ -138,16 +79,6 @@ export class ConfigurationsImpl implements Configurations {
     for await (const page of this.listByResourceGroupPagingPage(resourceGroup, options)) {
       yield* page;
     }
-  }
-
-  /**
-   * Retrieve Azure Advisor configurations and also retrieve configurations of contained resource groups.
-   * @param options The options parameters.
-   */
-  private _listBySubscription(
-    options?: ConfigurationsListBySubscriptionOptionalParams,
-  ): Promise<ConfigurationsListBySubscriptionResponse> {
-    return this.client.sendOperationRequest({ options }, listBySubscriptionOperationSpec);
   }
 
   /**
@@ -201,41 +132,10 @@ export class ConfigurationsImpl implements Configurations {
       createInResourceGroupOperationSpec,
     );
   }
-
-  /**
-   * ListBySubscriptionNext
-   * @param nextLink The nextLink from the previous successful call to the ListBySubscription method.
-   * @param options The options parameters.
-   */
-  private _listBySubscriptionNext(
-    nextLink: string,
-    options?: ConfigurationsListBySubscriptionNextOptionalParams,
-  ): Promise<ConfigurationsListBySubscriptionNextResponse> {
-    return this.client.sendOperationRequest(
-      { nextLink, options },
-      listBySubscriptionNextOperationSpec,
-    );
-  }
 }
 // Operation Specifications
 const serializer = coreClient.createSerializer(Mappers, /* isXml */ false);
 
-const listBySubscriptionOperationSpec: coreClient.OperationSpec = {
-  path: "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/configurations",
-  httpMethod: "GET",
-  responses: {
-    200: {
-      bodyMapper: Mappers.ConfigurationListResult,
-    },
-    default: {
-      bodyMapper: Mappers.ArmErrorResponse,
-    },
-  },
-  queryParameters: [Parameters.apiVersion],
-  urlParameters: [Parameters.$host, Parameters.subscriptionId],
-  headerParameters: [Parameters.accept],
-  serializer,
-};
 const createInSubscriptionOperationSpec: coreClient.OperationSpec = {
   path: "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/configurations/{configurationName}",
   httpMethod: "PUT",
@@ -291,20 +191,5 @@ const createInResourceGroupOperationSpec: coreClient.OperationSpec = {
   ],
   headerParameters: [Parameters.accept, Parameters.contentType],
   mediaType: "json",
-  serializer,
-};
-const listBySubscriptionNextOperationSpec: coreClient.OperationSpec = {
-  path: "{nextLink}",
-  httpMethod: "GET",
-  responses: {
-    200: {
-      bodyMapper: Mappers.ConfigurationListResult,
-    },
-    default: {
-      bodyMapper: Mappers.ArmErrorResponse,
-    },
-  },
-  urlParameters: [Parameters.$host, Parameters.nextLink, Parameters.subscriptionId],
-  headerParameters: [Parameters.accept],
   serializer,
 };

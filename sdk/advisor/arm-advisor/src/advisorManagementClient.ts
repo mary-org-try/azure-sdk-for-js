@@ -11,14 +11,12 @@ import * as coreRestPipeline from "@azure/core-rest-pipeline";
 import { PipelineRequest, PipelineResponse, SendRequest } from "@azure/core-rest-pipeline";
 import * as coreAuth from "@azure/core-auth";
 import {
-  RecommendationMetadataImpl,
   ConfigurationsImpl,
   RecommendationsImpl,
   OperationsImpl,
   SuppressionsImpl,
 } from "./operations/index.js";
 import {
-  RecommendationMetadata,
   Configurations,
   Recommendations,
   Operations,
@@ -123,7 +121,6 @@ export class AdvisorManagementClient extends coreClient.ServiceClient {
     // Assigning values to Constant parameters
     this.$host = options.$host || "https://management.azure.com";
     this.apiVersion = options.apiVersion || "2020-01-01";
-    this.recommendationMetadata = new RecommendationMetadataImpl(this);
     this.configurations = new ConfigurationsImpl(this);
     this.recommendations = new RecommendationsImpl(this);
     this.operations = new OperationsImpl(this);
@@ -156,7 +153,6 @@ export class AdvisorManagementClient extends coreClient.ServiceClient {
     this.pipeline.addPolicy(apiVersionPolicy);
   }
 
-  recommendationMetadata: RecommendationMetadata;
   configurations: Configurations;
   recommendations: Recommendations;
   operations: Operations;

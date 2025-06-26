@@ -2,11 +2,7 @@
 // Licensed under the MIT License.
 
 import { AzureFleetClient } from "./azureFleetClient.js";
-import {
-  _fleetsCreateOrUpdateDeserialize,
-  _fleetsUpdateDeserialize,
-  _fleetsDeleteDeserialize,
-} from "./api/fleets/index.js";
+import { _fleetsUpdateDeserialize, _fleetsDeleteDeserialize } from "./api/fleets/index.js";
 import { getLongRunningPoller } from "./static-helpers/pollingHelpers.js";
 import { OperationOptions, PathUncheckedResponse } from "@azure-rest/core-client";
 import { AbortSignalLike } from "@azure/abort-controller";
@@ -80,11 +76,6 @@ interface DeserializationHelper {
 }
 
 const deserializeMap: Record<string, DeserializationHelper> = {
-  "PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName}":
-    {
-      deserializer: _fleetsCreateOrUpdateDeserialize,
-      expectedStatuses: ["200", "201"],
-    },
   "PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureFleet/fleets/{fleetName}":
     {
       deserializer: _fleetsUpdateDeserialize,
