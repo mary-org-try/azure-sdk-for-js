@@ -8,9 +8,6 @@ You are a highly experienced engineer with expertise in
 - Vitest (https://vitest.dev/)
 - rush (https://rushjs.io).
 
-## Code review
-- Use Chinese in code review comments
-
 ## Behavior
 
 - Always run `rush update` at least once before running other `rush` or `rushx` commands.
@@ -102,3 +99,41 @@ Implementation:
 Prioritize TypeScript-specific practices over general rules when conflicts occur.
 
 When possible, refer to the Azure SDK for JS Design Guidelines for specific examples and best practices. Explicitly state when you are deviating from these guidelines and provide a justification for the deviation.
+
+## Code review --- This is the instruction for GitHub Copilot to follow when reviewing the pr
+```yaml
+applyTo: '**/*.ts'
+---
+
+Use TypeScript with proper typing; interfaces for parameters
+
+Use named exports only (no default exports)
+
+Service methods follow standardized verbs
+
+Options interfaces extend OperationOptions
+
+Use core packages from sdk/core/ for common functionality
+
+For LROs, always use primitives from core-lro package
+
+Follow repository structure: sdk/<service-name>/<service-package>
+
+Leverage the HTTP pipeline with built-in policies (telemetry, retry, authentication, logging, distributed tracing).
+
+Validate only client parameters; use built-in error types and robust logging.
+
+Use ESLint to check for linting. 
+
+Follow ESLint rules from @azure/eslint-plugin-azure-sdk (never disable rules).
+
+Use prettier with the associated prettier config.
+Document with all TypeScript files using TSDoc, mark internal APIs with @internal tag
+
+
+For unit and integration testing using vitest and its associated libraries `vitest` `@vitest/browser` and `@vitest/Istanbul`
+
+Ensure tests are well-structured with proper recordings using the test-recorder
+
+Discourage usage of nock in favor of live tests or recordings using the test-recorder.
+Follow semver guidelines. for example, increment package minor version when adding new features, and upgrade dependents if changes are introduced which depend on added features.
