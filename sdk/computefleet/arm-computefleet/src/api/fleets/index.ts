@@ -103,15 +103,16 @@ export function _fleetsCreateOrUpdateSend(
 
 export async function _fleetsCreateOrUpdateDeserialize(
   result: PathUncheckedResponse,
-): Promise<Fleet> {
+): Promise<void> {
   const expectedStatuses = ["200", "201"];
   if (!expectedStatuses.includes(result.status)) {
     throw createRestError(result);
   }
 
-  return fleetDeserializer(result.body);
+  return;
 }
 
+/** Create a Fleet */
 /** Create a Fleet */
 export function fleetsCreateOrUpdate(
   context: Client,
@@ -120,7 +121,7 @@ export function fleetsCreateOrUpdate(
   fleetName: string,
   resource: Fleet,
   options: FleetsCreateOrUpdateOptionalParams = { requestOptions: {} },
-): PollerLike<OperationState<Fleet>, Fleet> {
+): PollerLike<OperationState<void>, void> {
   return getLongRunningPoller(context, _fleetsCreateOrUpdateDeserialize, ["200", "201"], {
     updateIntervalInMs: options?.updateIntervalInMs,
     abortSignal: options?.abortSignal,
@@ -134,7 +135,7 @@ export function fleetsCreateOrUpdate(
         options,
       ),
     resourceLocationConfig: "azure-async-operation",
-  }) as PollerLike<OperationState<Fleet>, Fleet>;
+  });
 }
 
 export function _fleetsUpdateSend(
@@ -296,7 +297,7 @@ export function fleetsListBySubscription(
   context: Client,
   subscriptionId: string,
   options: FleetsListBySubscriptionOptionalParams = { requestOptions: {} },
-): PagedAsyncIterableIterator<Fleet> {
+): PagedAsyncIterableIterator<void> {
   return buildPagedAsyncIterator(
     context,
     () => _fleetsListBySubscriptionSend(context, subscriptionId, options),

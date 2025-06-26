@@ -38,7 +38,7 @@ export interface FleetsOperations {
     fleetName: string,
     resource: Fleet,
     options?: FleetsCreateOrUpdateOptionalParams,
-  ) => PollerLike<OperationState<Fleet>, Fleet>;
+  ) => PollerLike<OperationState<void>, void>;
   /** Update a Fleet */
   update: (
     resourceGroupName: string,
@@ -60,7 +60,7 @@ export interface FleetsOperations {
   /** List Fleet resources by subscription ID */
   listBySubscription: (
     options?: FleetsListBySubscriptionOptionalParams,
-  ) => PagedAsyncIterableIterator<Fleet>;
+  ) => PagedAsyncIterableIterator<void>;
   /** List VirtualMachineScaleSet resources by Fleet */
   listVirtualMachineScaleSets: (
     resourceGroupName: string,

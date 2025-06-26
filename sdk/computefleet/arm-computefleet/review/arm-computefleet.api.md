@@ -229,11 +229,11 @@ export interface FleetsListVirtualMachineScaleSetsOptionalParams extends Operati
 
 // @public
 export interface FleetsOperations {
-    createOrUpdate: (resourceGroupName: string, fleetName: string, resource: Fleet, options?: FleetsCreateOrUpdateOptionalParams) => PollerLike<OperationState<Fleet>, Fleet>;
+    createOrUpdate: (resourceGroupName: string, fleetName: string, resource: Fleet, options?: FleetsCreateOrUpdateOptionalParams) => PollerLike<OperationState<void>, void>;
     delete: (resourceGroupName: string, fleetName: string, options?: FleetsDeleteOptionalParams) => PollerLike<OperationState<void>, void>;
     get: (resourceGroupName: string, fleetName: string, options?: FleetsGetOptionalParams) => Promise<Fleet>;
     listByResourceGroup: (resourceGroupName: string, options?: FleetsListByResourceGroupOptionalParams) => PagedAsyncIterableIterator<Fleet>;
-    listBySubscription: (options?: FleetsListBySubscriptionOptionalParams) => PagedAsyncIterableIterator<Fleet>;
+    listBySubscription: (options?: FleetsListBySubscriptionOptionalParams) => PagedAsyncIterableIterator<void>;
     listVirtualMachineScaleSets: (resourceGroupName: string, name: string, options?: FleetsListVirtualMachineScaleSetsOptionalParams) => PagedAsyncIterableIterator<VirtualMachineScaleSet>;
     update: (resourceGroupName: string, fleetName: string, properties: FleetUpdate, options?: FleetsUpdateOptionalParams) => PollerLike<OperationState<Fleet>, Fleet>;
 }
