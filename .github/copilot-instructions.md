@@ -102,6 +102,9 @@ When possible, refer to the Azure SDK for JS Design Guidelines for specific exam
 
 ## Code Review Guidelines
 
+```yaml
+applyTo: '**/*.ts'
+---
 When reviewing code, ensure the following:
 - Use TypeScript with proper typing; interfaces for parameters
 - Use named exports only (no default exports)
