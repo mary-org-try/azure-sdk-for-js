@@ -233,7 +233,7 @@ export function _updateSend(
 
 export async function _updateDeserialize(
   result: PathUncheckedResponse,
-): Promise<OrganizationResource> {
+): Promise<void> {
   const expectedStatuses = ["200", "202"];
   if (!expectedStatuses.includes(result.status)) {
     const error = createRestError(result);
@@ -241,7 +241,7 @@ export async function _updateDeserialize(
     throw error;
   }
 
-  return organizationResourceDeserializer(result.body);
+  return undefined;
 }
 
 /** Update a OrganizationResource */
