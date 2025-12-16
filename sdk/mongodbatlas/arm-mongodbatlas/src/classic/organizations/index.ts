@@ -44,13 +44,13 @@ export interface OrganizationsOperations {
     organizationName: string,
     options?: OrganizationsDeleteOptionalParams,
   ) => PollerLike<OperationState<void>, void>;
-  /** Update a void */
+  /** Update a OrganizationResource */
   update: (
     resourceGroupName: string,
     organizationName: string,
     properties: OrganizationResource,
     options?: OrganizationsUpdateOptionalParams,
-  ) => PollerLike<OperationState<void>, void>;
+  ) => PollerLike<OperationState<OrganizationResource>, OrganizationResource>;
   /** Create a OrganizationResource */
   createOrUpdate: (
     resourceGroupName: string,
