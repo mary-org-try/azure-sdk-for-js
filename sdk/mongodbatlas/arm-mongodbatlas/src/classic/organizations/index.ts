@@ -44,7 +44,7 @@ export interface OrganizationsOperations {
     organizationName: string,
     options?: OrganizationsDeleteOptionalParams,
   ) => PollerLike<OperationState<void>, void>;
-  /** Update a OrganizationResource */
+  /** Update an OrganizationResource */
   update: (
     resourceGroupName: string,
     organizationName: string,

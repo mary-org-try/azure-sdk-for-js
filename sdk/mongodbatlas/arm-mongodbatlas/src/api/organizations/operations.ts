@@ -244,7 +244,7 @@ export async function _updateDeserialize(
   return organizationResourceDeserializer(result.body);
 }
 
-/** Update a OrganizationResource */
+/** Update an OrganizationResource */
 export function update(
   context: Client,
   resourceGroupName: string,
