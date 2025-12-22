@@ -258,7 +258,7 @@ export function update(
     getInitialResponse: () =>
       _updateSend(context, resourceGroupName, organizationName, properties, options),
     resourceLocationConfig: "location",
-  }) as any;
+  }) as PollerLike<OperationState<OrganizationResource>, OrganizationResource>;
 }
 
 export function _createOrUpdateSend(
