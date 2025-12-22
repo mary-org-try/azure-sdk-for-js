@@ -233,7 +233,7 @@ export function _updateSend(
 
 export async function _updateDeserialize(
   result: PathUncheckedResponse,
-): Promise<void> {
+): Promise<OrganizationResource> {
   const expectedStatuses = ["200", "202"];
   if (!expectedStatuses.includes(result.status)) {
     const error = createRestError(result);
@@ -241,17 +241,17 @@ export async function _updateDeserialize(
     throw error;
   }
 
-  return undefined;
+  return organizationResourceDeserializer(result.body);
 }
 
-/** Update a void */
+/** Update a OrganizationResource */
 export function update(
   context: Client,
   resourceGroupName: string,
   organizationName: string,
   properties: OrganizationResource,
   options: OrganizationsUpdateOptionalParams = { requestOptions: {} },
-): PollerLike<OperationState<void>, void> {
+): PollerLike<OperationState<OrganizationResource>, OrganizationResource> {
   return getLongRunningPoller(context, _updateDeserialize, ["200", "202"], {
     updateIntervalInMs: options?.updateIntervalInMs,
     abortSignal: options?.abortSignal,
