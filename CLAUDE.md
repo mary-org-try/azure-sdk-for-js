@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Prerequisites
+- Node.js version specified in `.nvmrc` (use `nvm use` to switch)
+- Rush.js installed globally (`npm install -g @microsoft/rush`)
+
 ## Build/Lint/Test Commands
 - Install and update: `rush update`
 - Build: `rush build` (all), `rush build -t <packagename>` (single), `rushx build` (current)
