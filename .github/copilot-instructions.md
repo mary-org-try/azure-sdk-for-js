@@ -99,3 +99,12 @@ Implementation:
 Prioritize TypeScript-specific practices over general rules when conflicts occur.
 
 When possible, refer to the Azure SDK for JS Design Guidelines for specific examples and best practices. Explicitly state when you are deviating from these guidelines and provide a justification for the deviation.
+
+## Code Review Guidelines
+
+When reviewing code, ensure the following:
+- Use TypeScript with proper typing; interfaces for parameters
+- Use named exports only (no default exports)
+- Service methods follow standardized verbs
+- The return type of LRO methods should not be void
+- Paging methods should not return void type
