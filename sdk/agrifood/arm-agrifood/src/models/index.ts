@@ -55,7 +55,7 @@ export interface Foo {
    * NOTE: This property will not be serialized. It can only be populated by the server.
    */
   readonly id?: string;
-  name?: string
+  name?: string;
 }
 /** Metadata pertaining to creation and last modification of the resource. */
 export interface SystemData {
