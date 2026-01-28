@@ -13,6 +13,8 @@ Review PRs for TypeScript best practices and Azure SDK compliance.
 2. Check implementation against rules below
 3. Verify tests and documentation
 4. Provide structured feedback with severity labels
+5. Add review summary in relevant pr
+
 
 ## Required Checks
 
