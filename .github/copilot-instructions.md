@@ -99,3 +99,7 @@ Implementation:
 Prioritize TypeScript-specific practices over general rules when conflicts occur.
 
 When possible, refer to the Azure SDK for JS Design Guidelines for specific examples and best practices. Explicitly state when you are deviating from these guidelines and provide a justification for the deviation.
+
+##  Copilot code review
+
+When performing code reviews, follow the guidelines in the file .github/instructions/typescript-code-review.md
