@@ -2,6 +2,8 @@
 applyTo: '**/*.ts'
 ---
 
+Leverage the existing azure-sdk-code-review to help review the PR.
+
 Use TypeScript with proper typing; interfaces for parameters
 
 Use named exports only (no default exports)
