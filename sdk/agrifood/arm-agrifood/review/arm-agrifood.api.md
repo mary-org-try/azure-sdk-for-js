@@ -45,6 +45,13 @@ export interface AgriFoodMgmtClientOptionalParams extends coreClient.ServiceClie
     endpoint?: string;
 }
 
+// @public (undocumented)
+export interface ArmAgriFoodSampleResource {
+    readonly id?: string;
+    // (undocumented)
+    name?: string;
+}
+
 // @public
 export interface ArmAsyncOperation {
     status?: string;
@@ -345,13 +352,6 @@ export interface FarmBeatsUpdateRequestModel {
     tags?: {
         [propertyName: string]: string;
     };
-}
-
-// @public (undocumented)
-export interface Foo {
-    readonly id?: string;
-    // (undocumented)
-    name?: string;
 }
 
 // @public (undocumented)
