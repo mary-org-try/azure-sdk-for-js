@@ -1,5 +1,5 @@
 ---
-applyTo: "sdk/arm-*/**"
+applyTo: "sdk/arm-*/**/*"
 ---
 
 ### Overview
