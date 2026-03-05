@@ -1,5 +1,6 @@
 ---
-applyTo: "sdk/arm-*/**/*"
+name: Azure SDK JS Code Review
+description: Guidance for reviewing pull requests across Azure SDK for JavaScript packages, including generated and manually written code.
 ---
 
 ### Overview
