@@ -69,7 +69,7 @@ export interface AccountsListOptionalParams extends OperationOptions {
 // @public
 export interface AccountsOperations {
     changeKeyVault: (resourceGroupName: string, accountName: string, options?: AccountsChangeKeyVaultOptionalParams) => PollerLike<OperationState<void>, void>;
-    createOrUpdate: (resourceGroupName: string, accountName: string, body: NetAppAccount, options?: AccountsCreateOrUpdateOptionalParams) => PollerLike<OperationState<NetAppAccount>, NetAppAccount>;
+    createOrUpdate: (resourceGroupName: string, accountName: string, body: NetAppAccount, options?: AccountsCreateOrUpdateOptionalParams) => PollerLike<OperationState<void>, void>;
     delete: (resourceGroupName: string, accountName: string, options?: AccountsDeleteOptionalParams) => PollerLike<OperationState<void>, void>;
     get: (resourceGroupName: string, accountName: string, options?: AccountsGetOptionalParams) => Promise<NetAppAccount>;
     getChangeKeyVaultInformation: (resourceGroupName: string, accountName: string, options?: AccountsGetChangeKeyVaultInformationOptionalParams) => PollerLike<OperationState<GetKeyVaultStatusResponse>, GetKeyVaultStatusResponse>;
