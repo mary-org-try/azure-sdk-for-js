@@ -17,6 +17,7 @@ async function accountsCreateOrUpdate(): Promise<void> {
   const result = await client.accounts.createOrUpdate("myRG", "account1", {
     location: "eastus",
     properties: {},
+    etag:"abc"
   });
   console.log(result);
 }

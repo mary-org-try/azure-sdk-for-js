@@ -1,5 +1,12 @@
 # Release History
 
+## 23.1.0 (2026-03-05)
+compared with version 23.0.0-alpha20260305
+
+### Features Added
+  - Interface AccountProperties has a new optional parameter prop1
+  - Interface AccountProperties has a new optional parameter Prop2
+
 ## 23.0.0 (2026-02-27)
 
 ### Features Added
