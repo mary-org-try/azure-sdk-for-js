@@ -485,7 +485,7 @@ export function _createOrUpdateSend(
 
 export async function _createOrUpdateDeserialize(
   result: PathUncheckedResponse,
-): Promise<NetAppAccount> {
+): Promise<void> {
   const expectedStatuses = ["200", "201", "202"];
   if (!expectedStatuses.includes(result.status)) {
     const error = createRestError(result);
@@ -493,7 +493,7 @@ export async function _createOrUpdateDeserialize(
     throw error;
   }
 
-  return netAppAccountDeserializer(result.body);
+  return;
 }
 
 /** Create or update the specified NetApp account within the resource group */
@@ -503,7 +503,7 @@ export function createOrUpdate(
   accountName: string,
   body: NetAppAccount,
   options: AccountsCreateOrUpdateOptionalParams = { requestOptions: {} },
-): PollerLike<OperationState<NetAppAccount>, NetAppAccount> {
+): PollerLike<OperationState<void>, void> {
   return getLongRunningPoller(context, _createOrUpdateDeserialize, ["200", "201", "202"], {
     updateIntervalInMs: options?.updateIntervalInMs,
     abortSignal: options?.abortSignal,
@@ -511,7 +511,7 @@ export function createOrUpdate(
       _createOrUpdateSend(context, resourceGroupName, accountName, body, options),
     resourceLocationConfig: "azure-async-operation",
     apiVersion: context.apiVersion ?? "2025-12-01",
-  }) as PollerLike<OperationState<NetAppAccount>, NetAppAccount>;
+  }) as PollerLike<OperationState<void>, void>;
 }
 
 export function _getSend(
