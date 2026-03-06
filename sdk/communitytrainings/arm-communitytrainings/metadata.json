@@ -1,0 +1,40 @@
+{
+  "apiVersion": "2023-11-01",
+  "emitterVersion": "0.50.0",
+  "crossLanguageDefinitions": {
+    "CrossLanguagePackageId": "Microsoft.Community",
+    "CrossLanguageDefinitionId": {
+      "@azure/arm-communitytrainings!OperationListResult:interface": "Azure.ResourceManager.CommonTypes.OperationListResult",
+      "@azure/arm-communitytrainings!Operation:interface": "Azure.ResourceManager.CommonTypes.Operation",
+      "@azure/arm-communitytrainings!OperationDisplay:interface": "Azure.ResourceManager.CommonTypes.OperationDisplay",
+      "@azure/arm-communitytrainings!ErrorResponse:interface": "Azure.ResourceManager.CommonTypes.ErrorResponse",
+      "@azure/arm-communitytrainings!ErrorDetail:interface": "Azure.ResourceManager.CommonTypes.ErrorDetail",
+      "@azure/arm-communitytrainings!ErrorAdditionalInfo:interface": "Azure.ResourceManager.CommonTypes.ErrorAdditionalInfo",
+      "@azure/arm-communitytrainings!CommunityTraining:interface": "Microsoft.Community.CommunityTraining",
+      "@azure/arm-communitytrainings!CommunityTrainingProperties:interface": "Microsoft.Community.CommunityTrainingProperties",
+      "@azure/arm-communitytrainings!IdentityConfigurationProperties:interface": "Microsoft.Community.IdentityConfigurationProperties",
+      "@azure/arm-communitytrainings!Sku:interface": "Azure.ResourceManager.CommonTypes.Sku",
+      "@azure/arm-communitytrainings!TrackedResource:interface": "Azure.ResourceManager.CommonTypes.TrackedResource",
+      "@azure/arm-communitytrainings!Resource:interface": "Azure.ResourceManager.CommonTypes.Resource",
+      "@azure/arm-communitytrainings!SystemData:interface": "Azure.ResourceManager.CommonTypes.SystemData",
+      "@azure/arm-communitytrainings!CommunityTrainingUpdate:interface": "Azure.ResourceManager.Foundations.ResourceUpdateModel",
+      "@azure/arm-communitytrainings!CommunityTrainingUpdateProperties:interface": "Azure.ResourceManager.Foundations.ResourceUpdateModelProperties",
+      "@azure/arm-communitytrainings!ArmOperationStatusResourceProvisioningState:interface": "Azure.ResourceManager.ArmOperationStatus",
+      "@azure/arm-communitytrainings!CommunityTrainingListResult:interface": "Azure.ResourceManager.ResourceListResult",
+      "@azure/arm-communitytrainings!KnownOrigin:enum": "Azure.ResourceManager.CommonTypes.Origin",
+      "@azure/arm-communitytrainings!KnownActionType:enum": "Azure.ResourceManager.CommonTypes.ActionType",
+      "@azure/arm-communitytrainings!KnownProvisioningState:enum": "Microsoft.Community.ProvisioningState",
+      "@azure/arm-communitytrainings!KnownSkuTier:enum": "Azure.ResourceManager.CommonTypes.SkuTier",
+      "@azure/arm-communitytrainings!KnowncreatedByType:enum": "Azure.ResourceManager.CommonTypes.createdByType",
+      "@azure/arm-communitytrainings!KnownResourceProvisioningState:enum": "Azure.ResourceManager.ResourceProvisioningState",
+      "@azure/arm-communitytrainings!KnownVersions:enum": "Microsoft.Community.Versions",
+      "@azure/arm-communitytrainings!CommunityTrainingsOperations#listBySubscription:member": "Microsoft.Community.CommunityTrainings.listBySubscription",
+      "@azure/arm-communitytrainings!CommunityTrainingsOperations#listByResourceGroup:member": "Microsoft.Community.CommunityTrainings.listByResourceGroup",
+      "@azure/arm-communitytrainings!CommunityTrainingsOperations#delete:member": "Microsoft.Community.CommunityTrainings.delete",
+      "@azure/arm-communitytrainings!CommunityTrainingsOperations#update:member": "Microsoft.Community.CommunityTrainings.update",
+      "@azure/arm-communitytrainings!CommunityTrainingsOperations#create:member": "Microsoft.Community.CommunityTrainings.create",
+      "@azure/arm-communitytrainings!CommunityTrainingsOperations#get:member": "Microsoft.Community.CommunityTrainings.get",
+      "@azure/arm-communitytrainings!OperationsOperations#list:member": "Azure.ResourceManager.Operations.list"
+    }
+  }
+}
