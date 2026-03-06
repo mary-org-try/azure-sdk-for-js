@@ -65,7 +65,7 @@ export interface AccountsUpdateOptionalParams extends OperationOptions {
 export function changeKeyVault(context: NetAppManagementContext, resourceGroupName: string, accountName: string, options?: AccountsChangeKeyVaultOptionalParams): PollerLike<OperationState<void>, void>;
 
 // @public
-export function createOrUpdate(context: NetAppManagementContext, resourceGroupName: string, accountName: string, body: NetAppAccount, options?: AccountsCreateOrUpdateOptionalParams): PollerLike<OperationState<NetAppAccount>, NetAppAccount>;
+export function createOrUpdate(context: NetAppManagementContext, resourceGroupName: string, accountName: string, body: NetAppAccount, options?: AccountsCreateOrUpdateOptionalParams): PollerLike<OperationState<void>, void>;
 
 // @public
 export function get(context: NetAppManagementContext, resourceGroupName: string, accountName: string, options?: AccountsGetOptionalParams): Promise<NetAppAccount>;
