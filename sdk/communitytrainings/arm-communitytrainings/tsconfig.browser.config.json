@@ -1,0 +1,10 @@
+{
+  "extends": "../../../tsconfig.browser.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@azure/arm-communitytrainings": ["./dist/browser/index.d.ts"],
+      "@azure/arm-communitytrainings/*": ["./dist/browser/*"],
+      "$internal/*": ["./dist/browser/*"]
+    }
+  }
+}
