@@ -31,7 +31,9 @@ name: "Architecture Review"
     # names: # Label filtering applied via job conditions
     # - architecture-review-needed # Label filtering applied via job conditions
     types:
-    - labeled
+      - opened
+      - synchronize
+
 
 permissions: {}
 
