@@ -93,7 +93,7 @@ export interface AccountsOperations {
     accountName: string,
     body: NetAppAccount,
     options?: AccountsCreateOrUpdateOptionalParams,
-  ) => PollerLike<OperationState<NetAppAccount>, NetAppAccount>;
+  ) => PollerLike<OperationState<void>, void>;
   /** Get the NetApp account */
   get: (
     resourceGroupName: string,
